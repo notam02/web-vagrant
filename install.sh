@@ -56,3 +56,6 @@ sudo apt-get install nodejs
 
 # Gulp
 npm install -g gulp-cli
+
+# Add default apache user to vagrant group
+# usermod -a -G vagrant www-data
