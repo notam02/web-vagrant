@@ -17,6 +17,9 @@ sudo apt-get install -y mysql-server mysql-client libmysqlclient-dev
 # Create wordpress database
 mysql -uroot -proot -e "CREATE DATABASE wordpress;"
 
+# zip
+sudo apt-get install -y zip
+
 cat << EOF | sudo tee -a /etc/php7/mods-available/xdebug.ini
 xdebug.scream=1
 xdebug.cli_color=1
@@ -62,3 +65,9 @@ npm install -g gulp-cli
 
 # Symbolic link for html dir 
 ln -sf /var/www/html html
+ln -sf /var/www/html/wp-content/themes themes
+
+# Install Yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt -y install yarn
